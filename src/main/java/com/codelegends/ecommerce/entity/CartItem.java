@@ -7,11 +7,14 @@ import lombok.*;
 @Getter
 // Let Lombok create setter methods for fields
 @Setter
+// Give JPA an empty constructor to create objects
 @NoArgsConstructor
+// Add table rules for unique CartItem records
 @Table(uniqueConstraints=@UniqueConstraint(columnNames= {
     "cart_id","product_id"
 }
 // Defines the CartItem type used by the ecommerce app
+// Represents the CartItem database object in Java
 )) public class CartItem extends BaseClass {
     @Column(nullable=false)
     // Store the quantity value for this object
