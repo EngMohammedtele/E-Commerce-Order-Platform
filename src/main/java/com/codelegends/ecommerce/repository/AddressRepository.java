@@ -7,6 +7,7 @@ import java.util.*;
 // Use Address as the entity type and Long as the id type
 public interface AddressRepository extends JpaRepository<Address,Long> {
     // Fetch only records that are still active
+    // Return every address row that is still active
     List<Address> findAllByIsActiveTrue();
     // Look up an active record by its id
     Optional<Address> findByIdAndIsActiveTrue(Long id);
