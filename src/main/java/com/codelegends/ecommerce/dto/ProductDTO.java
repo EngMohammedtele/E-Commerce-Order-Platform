@@ -60,8 +60,10 @@ public class ProductDTO {
         return builder().id(e.getId()).name(e.getName()).price(e.getPrice()).stockQuantity(e.getStockQuantity()).sku(e.getSku()).categoryId(e.getCategory().getId()).build();
     }
     // Convert each entity in the list into a DTO
+    // Prepare a DTO list from many database rows
     public static List<ProductDTO> convertToDTO(List<Product>x) {
         // Return the converted stream results to the caller
+        // Map every entity by using the single-item converter
         return x.stream().map(ProductDTO::convertToDTO).toList();
     }
 }
