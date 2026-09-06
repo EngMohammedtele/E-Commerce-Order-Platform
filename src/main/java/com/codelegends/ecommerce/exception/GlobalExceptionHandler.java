@@ -52,6 +52,7 @@ public class GlobalExceptionHandler {
     // Receive the status and message used in the error body
     private ResponseEntity<ErrorResponse> response(HttpStatus s,String m) {
         // Send the HTTP response with the chosen status
+        // Wrap the error details in a ResponseEntity
         return ResponseEntity.status(s).body(new ErrorResponse(s.value(),s.getReasonPhrase(),m,LocalDateTime.now()));
     }
 }
