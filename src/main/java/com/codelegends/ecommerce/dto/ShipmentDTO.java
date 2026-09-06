@@ -30,13 +30,18 @@ public class ShipmentDTO {
     // Store the shippedDate value for this object
     // Show when the shipment left the store
     private LocalDateTime shippedDate;
+    // Make sure the order id value is provided
     @NotNull
+    // Validate that the order id value is greater than zero
     @Positive
     // Store the orderId value for this object
+    // Reference the order connected to this data
     private Long orderId;
     // Convert one entity object into a DTO
+    // Start mapping one database entity into API data
     public static ShipmentDTO convertToDTO(Shipment e) {
         // Build and return the DTO with copied values
+        // Copy only API-safe fields into the DTO result
         return builder().id(e.getId()).trackingNumber(e.getTrackingNumber()).status(e.getStatus()).shippedDate(e.getShippedDate()).orderId(e.getOrder().getId()).build();
     }
     // Convert each entity in the list into a DTO
