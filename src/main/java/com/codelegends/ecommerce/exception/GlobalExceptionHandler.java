@@ -10,6 +10,7 @@ import java.util.stream.*;
 // Central place for turning exceptions into HTTP responses
 public class GlobalExceptionHandler {
     // Handle this kind of exception in one place
+    // Catch missing resource errors here
     @ExceptionHandler(ResourceNotFoundException.class) ResponseEntity<ErrorResponse> notFound(ResourceNotFoundException e) {
         // Return the result to the calling code
         return response(HttpStatus.NOT_FOUND,e.getMessage());
