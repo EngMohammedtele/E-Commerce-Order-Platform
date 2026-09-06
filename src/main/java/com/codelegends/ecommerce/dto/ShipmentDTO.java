@@ -17,13 +17,18 @@ public class ShipmentDTO {
     // Store the id value for this object
     // Expose the database id when this Shipment is returned
     private Long id;
+    // Require the tracking number value to contain text
     @NotBlank
+    // Keep the tracking number text inside the allowed length
     @Size(max=80)
     // Store the trackingNumber value for this object
+    // Carry the shipment tracking code
     private String trackingNumber;
     // Store the status value for this object
+    // Expose the current Shipment status
     private Enums.ShipmentStatus status;
     // Store the shippedDate value for this object
+    // Show when the shipment left the store
     private LocalDateTime shippedDate;
     @NotNull
     @Positive
