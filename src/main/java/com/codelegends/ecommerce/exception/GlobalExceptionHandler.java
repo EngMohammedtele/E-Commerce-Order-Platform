@@ -11,6 +11,7 @@ import java.util.stream.*;
 public class GlobalExceptionHandler {
     // Handle this kind of exception in one place
     // Catch missing resource errors here
+    // Receive the exception that says a record was not found
     @ExceptionHandler(ResourceNotFoundException.class) ResponseEntity<ErrorResponse> notFound(ResourceNotFoundException e) {
         // Return the result to the calling code
         return response(HttpStatus.NOT_FOUND,e.getMessage());
