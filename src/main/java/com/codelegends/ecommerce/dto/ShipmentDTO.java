@@ -45,8 +45,10 @@ public class ShipmentDTO {
         return builder().id(e.getId()).trackingNumber(e.getTrackingNumber()).status(e.getStatus()).shippedDate(e.getShippedDate()).orderId(e.getOrder().getId()).build();
     }
     // Convert each entity in the list into a DTO
+    // Prepare a DTO list from many database rows
     public static List<ShipmentDTO> convertToDTO(List<Shipment>x) {
         // Return the converted stream results to the caller
+        // Map every entity by using the single-item converter
         return x.stream().map(ShipmentDTO::convertToDTO).toList();
     }
 }
