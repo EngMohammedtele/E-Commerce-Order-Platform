@@ -37,6 +37,7 @@ public class GlobalExceptionHandler {
         // Join field names and messages into one response string
         String m=e.getBindingResult().getFieldErrors().stream().map(x->x.getField()+": "+x.getDefaultMessage()).collect(Collectors.joining(", "));
         // Return the result to the calling code
+        // Send validation failures back as a bad request
         return response(HttpStatus.BAD_REQUEST,m);
     }
     // Handle this kind of exception in one place
