@@ -16,9 +16,12 @@ import lombok.*;
 // Defines the CartItem type used by the ecommerce app
 // Represents the CartItem database object in Java
 )) public class CartItem extends BaseClass {
+    // Require the quantity column to have a value
     @Column(nullable=false)
     // Store the quantity value for this object
+    // Store how many products are included
     private Integer quantity;
+    // Link many CartItem records to one cart record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the cart value for this object
     private Cart cart;
