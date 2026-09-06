@@ -10,5 +10,6 @@ public interface AddressRepository extends JpaRepository<Address,Long> {
     // Return every address row that is still active
     List<Address> findAllByIsActiveTrue();
     // Look up an active record by its id
+    // Return the address only when the id exists and is active
     Optional<Address> findByIdAndIsActiveTrue(Long id);
 }
