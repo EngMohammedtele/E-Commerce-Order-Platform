@@ -30,6 +30,7 @@ public class GlobalExceptionHandler {
     }
     // Handle this kind of exception in one place
     // Catch validation errors from request bodies
+    // Receive validation details collected by Spring
     @ExceptionHandler(MethodArgumentNotValidException.class) ResponseEntity<ErrorResponse> validation(MethodArgumentNotValidException e) {
         // Collect validation messages into one readable string
         String m=e.getBindingResult().getFieldErrors().stream().map(x->x.getField()+": "+x.getDefaultMessage()).collect(Collectors.joining(", "));
