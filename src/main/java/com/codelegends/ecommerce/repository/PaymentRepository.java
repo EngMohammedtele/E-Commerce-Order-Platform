@@ -10,5 +10,6 @@ public interface PaymentRepository extends JpaRepository<Payment,Long> {
     // Look up an active record by its id
     Optional<Payment> findByIdAndIsActiveTrue(Long id);
     // Search active records using this field value
+    // Find the active payment linked to one order
     Optional<Payment> findByOrderIdAndIsActiveTrue(Long id);
 }
