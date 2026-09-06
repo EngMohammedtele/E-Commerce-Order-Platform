@@ -1,10 +1,14 @@
 package com.codelegends.ecommerce.entity;
 // Defines the Enums type used by the ecommerce app
+// Represents the Enums database object in Java
 public final class Enums {
+    // Block object creation for this utility holder
     private Enums() {
     }
     // Lists the allowed Gender values for the application
+    // Groups the fixed Gender choices used by entities
     public enum Gender {
+        // List the allowed values for this enum
         MALE,FEMALE
     }
     // Lists the allowed AddressType values for the application
