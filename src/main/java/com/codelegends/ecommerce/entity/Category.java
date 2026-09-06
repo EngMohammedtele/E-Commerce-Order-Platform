@@ -21,10 +21,14 @@ public class Category extends BaseClass {
     // Map the description field to a database column
     @Column(length=500)
     // Store the description value for this object
+    // Hold the optional category description text
     private String description;
+    // Link many Category records to one store record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the store value for this object
+    // Connect this row to the owning store
     private Store store;
+    // Connect this Category to many products records
     @OneToMany(mappedBy="category")
     // Store the list of related products entries
     private List<Product> products=new ArrayList<>();
