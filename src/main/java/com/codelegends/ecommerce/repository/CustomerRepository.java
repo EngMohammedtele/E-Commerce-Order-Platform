@@ -3,6 +3,7 @@ import com.codelegends.ecommerce.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.*;
 // Describes the CustomerRepository contract used by this layer
+// Provides database operations for Customer entities
 public interface CustomerRepository extends JpaRepository<Customer,Long> {
     // Fetch only records that are still active
     List<Customer> findAllByIsActiveTrue();
