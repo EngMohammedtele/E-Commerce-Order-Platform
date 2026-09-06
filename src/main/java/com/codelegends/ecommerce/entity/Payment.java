@@ -32,10 +32,14 @@ public class Payment extends BaseClass {
     // Require the status column to have a value
     @Column(nullable=false,length=20)
     // Store the status value for this object
+    // Keep the current Payment status
     private PaymentStatus status;
     // Store the paidDate value for this object
+    // Remember when the payment was made
     private LocalDateTime paidDate;
+    // Connect this Payment to one order record
     @OneToOne(optional=false,fetch=FetchType.LAZY)
+    // Keep this foreign key unique in the table
     @JoinColumn(unique=true)
     // Store the order value for this object
     private Order order;
