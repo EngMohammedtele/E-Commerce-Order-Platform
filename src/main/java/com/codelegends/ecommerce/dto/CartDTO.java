@@ -24,13 +24,17 @@ public class CartDTO {
     // Point this DTO back to the related customer
     private Long customerId;
     // Store the list of related items entries
+    // Include item DTOs nested inside this response
     private List<CartItemDTO> items;
     // Convert one entity object into a DTO
+    // Start mapping one database entity into API data
     public static CartDTO convertToDTO(Cart e) {
         // Return the converted stream results to the caller
+        // Copy only API-safe fields into the DTO result
         return builder().id(e.getId()).customerId(e.getCustomer().getId()).items(CartItemDTO.convertToDTO(e.getItems().stream().filter(i->i.isActive()).toList())).build();
     }
     // Convert each entity in the list into a DTO
+    // Prepare a DTO list from many database rows
     public static List<CartDTO> convertToDTO(List<Cart>x) {
         // Return the converted stream results to the caller
         return x.stream().map(CartDTO::convertToDTO).toList();
