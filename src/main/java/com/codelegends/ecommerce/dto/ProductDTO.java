@@ -47,12 +47,16 @@ public class ProductDTO {
     private String sku;
     // Make sure the category id value is provided
     @NotNull
+    // Validate that the category id value is greater than zero
     @Positive
     // Store the categoryId value for this object
+    // Connect the product to its category
     private Long categoryId;
     // Convert one entity object into a DTO
+    // Start mapping one database entity into API data
     public static ProductDTO convertToDTO(Product e) {
         // Build and return the DTO with copied values
+        // Copy only API-safe fields into the DTO result
         return builder().id(e.getId()).name(e.getName()).price(e.getPrice()).stockQuantity(e.getStockQuantity()).sku(e.getSku()).categoryId(e.getCategory().getId()).build();
     }
     // Convert each entity in the list into a DTO
