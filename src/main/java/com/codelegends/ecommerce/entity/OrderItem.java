@@ -8,9 +8,12 @@ import java.math.*;
 @Getter
 // Let Lombok create setter methods for fields
 @Setter
+// Give JPA an empty constructor to create objects
 @NoArgsConstructor
 // Defines the OrderItem type used by the ecommerce app
+// Represents the OrderItem database object in Java
 public class OrderItem extends BaseClass {
+    // Require the quantity column to have a value
     @Column(nullable=false)
     // Store the quantity value for this object
     private Integer quantity;
