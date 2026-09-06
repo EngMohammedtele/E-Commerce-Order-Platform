@@ -47,15 +47,20 @@ public class AddressDTO {
     // Validate that the customer id value is greater than zero
     @Positive
     // Store the customerId value for this object
+    // Point this DTO back to the related customer
     private Long customerId;
     // Convert one entity object into a DTO
+    // Start mapping one database entity into API data
     public static AddressDTO convertToDTO(Address e) {
         // Build and return the DTO with copied values
+        // Copy only API-safe fields into the DTO result
         return builder().id(e.getId()).street(e.getStreet()).city(e.getCity()).postalCode(e.getPostalCode()).type(e.getType()).customerId(e.getCustomer().getId()).build();
     }
     // Convert each entity in the list into a DTO
+    // Prepare a DTO list from many database rows
     public static List<AddressDTO> convertToDTO(List<Address>x) {
         // Return the converted stream results to the caller
+        // Map every entity by using the single-item converter
         return x.stream().map(AddressDTO::convertToDTO).toList();
     }
 }
