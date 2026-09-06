@@ -13,9 +13,12 @@ public class StatsController {
     }
     // Build summary numbers for one store
     @GetMapping("/stores/{id}")Map<String,Object>store(@PathVariable Long id) {
+        // Build summary numbers for one store
         return s.store(id);
     }
+    // Return the product with the highest sales count
     @GetMapping("/best-selling-product")Object best() {
+        // Return the product with the highest sales count
         return s.best();
     }
 }
