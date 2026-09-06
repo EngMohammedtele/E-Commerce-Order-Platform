@@ -37,6 +37,7 @@ public class CartDTO {
     // Prepare a DTO list from many database rows
     public static List<CartDTO> convertToDTO(List<Cart>x) {
         // Return the converted stream results to the caller
+        // Map every entity by using the single-item converter
         return x.stream().map(CartDTO::convertToDTO).toList();
     }
 }
