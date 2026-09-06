@@ -58,8 +58,10 @@ public class ReviewDTO {
         return builder().id(e.getId()).rating(e.getRating()).comment(e.getComment()).reviewDate(e.getReviewDate()).customerId(e.getCustomer().getId()).productId(e.getProduct().getId()).build();
     }
     // Convert each entity in the list into a DTO
+    // Prepare a DTO list from many database rows
     public static List<ReviewDTO> convertToDTO(List<Review>x) {
         // Return the converted stream results to the caller
+        // Map every entity by using the single-item converter
         return x.stream().map(ReviewDTO::convertToDTO).toList();
     }
 }
