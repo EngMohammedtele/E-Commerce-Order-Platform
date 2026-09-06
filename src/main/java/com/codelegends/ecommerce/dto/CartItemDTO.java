@@ -28,12 +28,17 @@ public class CartItemDTO {
     // Validate that the cart id value is greater than zero
     @Positive
     // Store the cartId value for this object
+    // Show which cart owns this item
     private Long cartId;
+    // Make sure the product id value is provided
     @NotNull
+    // Validate that the product id value is greater than zero
     @Positive
     // Store the productId value for this object
+    // Identify the product linked to this data
     private Long productId;
     // Convert one entity object into a DTO
+    // Start mapping one database entity into API data
     public static CartItemDTO convertToDTO(CartItem e) {
         // Build and return the DTO with copied values
         return builder().id(e.getId()).quantity(e.getQuantity()).cartId(e.getCart().getId()).productId(e.getProduct().getId()).build();
