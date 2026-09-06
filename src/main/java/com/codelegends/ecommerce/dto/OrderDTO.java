@@ -47,8 +47,10 @@ public class OrderDTO {
         return builder().id(e.getId()).orderDate(e.getOrderDate()).status(e.getStatus()).totalAmount(e.getTotalAmount()).customerId(e.getCustomer().getId()).items(OrderItemDTO.convertToDTO(e.getItems())).build();
     }
     // Convert each entity in the list into a DTO
+    // Prepare a DTO list from many database rows
     public static List<OrderDTO> convertToDTO(List<Order>x) {
         // Return the converted stream results to the caller
+        // Map every entity by using the single-item converter
         return x.stream().map(OrderDTO::convertToDTO).toList();
     }
 }
