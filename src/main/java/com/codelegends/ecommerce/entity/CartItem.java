@@ -24,8 +24,11 @@ import lombok.*;
     // Link many CartItem records to one cart record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the cart value for this object
+    // Point this item back to its cart
     private Cart cart;
+    // Link many CartItem records to one product record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the product value for this object
+    // Link this row to the related product
     private Product product;
 }
