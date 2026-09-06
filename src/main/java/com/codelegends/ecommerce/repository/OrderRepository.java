@@ -15,5 +15,6 @@ public interface OrderRepository extends JpaRepository<Order,Long> {
     List<Order> findByCustomerIdAndIsActiveTrue(Long id);
     // Use this custom SQL query for a special lookup
     // Use JPQL to total a customer order amount
+    // Return the customer spending total as a BigDecimal
     @Query("select coalesce(sum(o.totalAmount),0) from Order o where o.customer.id=?1 and o.isActive=true") BigDecimal totalSpent(Long id);
 }
