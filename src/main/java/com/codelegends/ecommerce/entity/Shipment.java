@@ -3,9 +3,13 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.*;
 import static com.codelegends.ecommerce.entity.Enums.*;
+// Mark Shipment as a table-backed database entity
 @Entity
+// Let Lombok create getter methods for fields
 @Getter
+// Let Lombok create setter methods for fields
 @Setter
+// Give JPA an empty constructor to create objects
 @NoArgsConstructor
 @Table(uniqueConstraints=@UniqueConstraint(columnNames="trackingNumber"))
 // Defines the Shipment type used by the ecommerce app
