@@ -3,13 +3,18 @@ import com.codelegends.ecommerce.entity.CartItem;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import java.util.*;
+// Let Lombok generate simple getters and setters
 @Data
+// Support building this DTO with chained builder calls
 @Builder
+// Provide an empty constructor for frameworks and JSON binding
 @NoArgsConstructor
+// Provide a constructor that receives every DTO field
 @AllArgsConstructor
 // Moves cartitem data between the API and service layers
 public class CartItemDTO {
     // Store the id value for this object
+    // Expose the database id when this CartItem is returned
     private Long id;
     @NotNull
     @Positive
