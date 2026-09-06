@@ -17,6 +17,7 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     // Find active products below a requested price
     List<Product> findByPriceLessThanAndIsActiveTrue(BigDecimal price);
     // Search active records using this field value
+    // Find active products with low stock
     List<Product> findByStockQuantityLessThanAndIsActiveTrue(Integer threshold);
     // Use this custom SQL query for a special lookup
     @Query(value="select p.* from product p join order_item oi on oi.product_id=p.id where p.is_active=true and oi.is_active=true group by p.id order by sum(oi.quantity) desc limit 1",nativeQuery=true) Optional<Product> bestSelling();
