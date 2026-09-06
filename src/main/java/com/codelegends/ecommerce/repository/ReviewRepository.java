@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.*;
 import java.util.*;
 // Describes the ReviewRepository contract used by this layer
 public interface ReviewRepository extends JpaRepository<Review,Long> {
+// Provides database operations for Review entities
     // Fetch only records that are still active
     List<Review> findAllByIsActiveTrue();
     // Look up an active record by its id
