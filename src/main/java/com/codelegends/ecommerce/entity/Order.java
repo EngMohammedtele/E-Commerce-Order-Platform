@@ -40,11 +40,15 @@ public class Order extends BaseClass {
     // Store the customer value for this object
     // Point this record to its customer
     private Customer customer;
+    // Connect this Order to many items records
     @OneToMany(mappedBy="order",cascade=CascadeType.ALL)
     // Store the list of related items entries
+    // Keep the child item records for this parent
     private List<OrderItem> items=new ArrayList<>();
+    // Connect this Order to one payment record
     @OneToOne(mappedBy="order",cascade=CascadeType.ALL)
     // Store the payment value for this object
+    // Connect the order to its payment row
     private Payment payment;
     @OneToOne(mappedBy="order",cascade=CascadeType.ALL)
     // Store the shipment value for this object
