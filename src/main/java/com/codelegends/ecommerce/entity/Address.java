@@ -21,10 +21,14 @@ public class Address extends BaseClass {
     // Require the city column to have a value
     @Column(nullable=false,length=100)
     // Store the city value for this object
+    // Store the city for this address row
     private String city;
+    // Require the postal code column to have a value
     @Column(nullable=false,length=20)
     // Store the postalCode value for this object
+    // Keep the postal code for delivery details
     private String postalCode;
+    // Save the type enum as readable text
     @Enumerated(EnumType.STRING)
     @Column(nullable=false,length=10)
     // Store the type value for this object
