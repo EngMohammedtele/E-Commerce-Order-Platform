@@ -23,5 +23,6 @@ public class Cart extends BaseClass {
     // Connect this Cart to many items records
     @OneToMany(mappedBy="cart",cascade=CascadeType.ALL,orphanRemoval=true)
     // Store the list of related items entries
+    // Keep the child item records for this parent
     private List<CartItem> items=new ArrayList<>();
 }
