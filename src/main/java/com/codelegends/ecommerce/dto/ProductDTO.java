@@ -4,14 +4,20 @@ import jakarta.validation.constraints.*;
 import lombok.*;
 import java.math.*;
 import java.util.*;
+// Let Lombok generate simple getters and setters
 @Data
+// Support building this DTO with chained builder calls
 @Builder
+// Provide an empty constructor for frameworks and JSON binding
 @NoArgsConstructor
+// Provide a constructor that receives every DTO field
 @AllArgsConstructor
 // Moves product data between the API and service layers
 public class ProductDTO {
     // Store the id value for this object
+    // Expose the database id when this Product is returned
     private Long id;
+    // Require the name value to contain text
     @NotBlank
     @Size(max=120)
     // Store the name value for this object
