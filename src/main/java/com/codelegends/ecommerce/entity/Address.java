@@ -30,10 +30,14 @@ public class Address extends BaseClass {
     private String postalCode;
     // Save the type enum as readable text
     @Enumerated(EnumType.STRING)
+    // Require the type column to have a value
     @Column(nullable=false,length=10)
     // Store the type value for this object
+    // Save which kind of address this is
     private AddressType type;
+    // Link many Address records to one customer record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the customer value for this object
+    // Point this record to its customer
     private Customer customer;
 }
