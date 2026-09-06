@@ -15,9 +15,12 @@ import java.util.*;
 public class Cart extends BaseClass {
     // Connect this Cart to one customer record
     @OneToOne(optional=false,fetch=FetchType.LAZY)
+    // Keep this foreign key unique in the table
     @JoinColumn(unique=true)
     // Store the customer value for this object
+    // Point this record to its customer
     private Customer customer;
+    // Connect this Cart to many items records
     @OneToMany(mappedBy="cart",cascade=CascadeType.ALL,orphanRemoval=true)
     // Store the list of related items entries
     private List<CartItem> items=new ArrayList<>();
