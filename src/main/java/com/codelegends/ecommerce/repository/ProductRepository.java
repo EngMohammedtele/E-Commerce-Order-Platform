@@ -21,5 +21,6 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     List<Product> findByStockQuantityLessThanAndIsActiveTrue(Integer threshold);
     // Use this custom SQL query for a special lookup
     // Run native SQL to find the best selling product
+    // Return the top product only when sales data exists
     @Query(value="select p.* from product p join order_item oi on oi.product_id=p.id where p.is_active=true and oi.is_active=true group by p.id order by sum(oi.quantity) desc limit 1",nativeQuery=true) Optional<Product> bestSelling();
 }
