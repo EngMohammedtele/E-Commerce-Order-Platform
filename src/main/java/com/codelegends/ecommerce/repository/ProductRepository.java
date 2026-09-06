@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.*;
 import java.math.*;
 import java.util.*;
 // Describes the ProductRepository contract used by this layer
+// Provides database operations for Product entities
 public interface ProductRepository extends JpaRepository<Product,Long> {
     // Fetch only records that are still active
     List<Product> findAllByIsActiveTrue();
