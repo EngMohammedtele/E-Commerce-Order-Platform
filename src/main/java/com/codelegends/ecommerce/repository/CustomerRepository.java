@@ -9,5 +9,6 @@ public interface CustomerRepository extends JpaRepository<Customer,Long> {
     // Fetch only records that are still active
     List<Customer> findAllByIsActiveTrue();
     // Look up an active record by its id
+    // Look up a customer by id while ignoring inactive rows
     Optional<Customer> findByIdAndIsActiveTrue(Long id);
 }
