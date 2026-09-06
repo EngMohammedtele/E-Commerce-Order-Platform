@@ -49,6 +49,7 @@ public class GlobalExceptionHandler {
         return response(HttpStatus.INTERNAL_SERVER_ERROR,"Unexpected server error");
     }
     // Build the shared error response object
+    // Receive the status and message used in the error body
     private ResponseEntity<ErrorResponse> response(HttpStatus s,String m) {
         // Send the HTTP response with the chosen status
         return ResponseEntity.status(s).body(new ErrorResponse(s.value(),s.getReasonPhrase(),m,LocalDateTime.now()));
