@@ -34,11 +34,14 @@ public class StoreDTO {
     // Start mapping one database entity into API data
     public static StoreDTO convertToDTO(Store e) {
         // Build and return the DTO with copied values
+        // Copy only API-safe fields into the DTO result
         return builder().id(e.getId()).name(e.getName()).location(e.getLocation()).build();
     }
     // Convert each entity in the list into a DTO
+    // Prepare a DTO list from many database rows
     public static List<StoreDTO> convertToDTO(List<Store> x) {
         // Return the converted stream results to the caller
+        // Map every entity by using the single-item converter
         return x.stream().map(StoreDTO::convertToDTO).toList();
     }
 }
