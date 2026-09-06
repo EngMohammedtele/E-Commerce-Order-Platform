@@ -7,6 +7,7 @@ import java.util.stream.*;
 // Apply these handlers to REST controllers across the app
 @RestControllerAdvice
 // Defines the GlobalExceptionHandler type used by the ecommerce app
+// Central place for turning exceptions into HTTP responses
 public class GlobalExceptionHandler {
     // Handle this kind of exception in one place
     @ExceptionHandler(ResourceNotFoundException.class) ResponseEntity<ErrorResponse> notFound(ResourceNotFoundException e) {
