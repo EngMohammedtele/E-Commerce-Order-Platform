@@ -5,13 +5,18 @@ import lombok.*;
 import java.time.*;
 import java.math.*;
 import java.util.*;
+// Let Lombok generate simple getters and setters
 @Data
+// Support building this DTO with chained builder calls
 @Builder
+// Provide an empty constructor for frameworks and JSON binding
 @NoArgsConstructor
+// Provide a constructor that receives every DTO field
 @AllArgsConstructor
 // Moves payment data between the API and service layers
 public class PaymentDTO {
     // Store the id value for this object
+    // Expose the database id when this Payment is returned
     private Long id;
     @Positive
     // Store the amount value for this object
