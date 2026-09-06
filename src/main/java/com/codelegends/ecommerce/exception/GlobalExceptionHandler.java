@@ -25,6 +25,7 @@ public class GlobalExceptionHandler {
     // Handle client-side request problems with one method
     ) ResponseEntity<ErrorResponse> badRequest(RuntimeException e) {
         // Return the result to the calling code
+        // Return HTTP 400 for invalid request data
         return response(HttpStatus.BAD_REQUEST,e.getMessage());
     }
     // Handle this kind of exception in one place
