@@ -33,13 +33,19 @@ public class ProductDTO {
     private BigDecimal price;
     // Make sure the stock quantity value is provided
     @NotNull
+    // Allow zero or a positive number for stock quantity
     @PositiveOrZero
     // Store the stockQuantity value for this object
+    // Show how many units are available in stock
     private Integer stockQuantity;
+    // Require the sku value to contain text
     @NotBlank
+    // Keep the sku text inside the allowed length
     @Size(max=50)
     // Store the sku value for this object
+    // Carry the product stock keeping code
     private String sku;
+    // Make sure the category id value is provided
     @NotNull
     @Positive
     // Store the categoryId value for this object
