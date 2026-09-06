@@ -21,11 +21,15 @@ public class Shipment extends BaseClass {
     // Store the trackingNumber value for this object
     // Keep the unique shipment tracking number
     private String trackingNumber;
+    // Save the status enum as readable text
     @Enumerated(EnumType.STRING)
+    // Require the status column to have a value
     @Column(nullable=false,length=20)
     // Store the status value for this object
+    // Keep the current Shipment status
     private ShipmentStatus status;
     // Store the shippedDate value for this object
+    // Store when the shipment was sent
     private LocalDateTime shippedDate;
     @OneToOne(optional=false,fetch=FetchType.LAZY)
     @JoinColumn(unique=true)
