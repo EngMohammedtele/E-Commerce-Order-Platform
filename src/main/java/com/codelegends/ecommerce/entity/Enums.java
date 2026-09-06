@@ -12,11 +12,15 @@ public final class Enums {
         MALE,FEMALE
     }
     // Lists the allowed AddressType values for the application
+    // Groups the fixed AddressType choices used by entities
     public enum AddressType {
+        // List the allowed values for this enum
         HOME,WORK,OTHER
     }
     // Lists the allowed OrderStatus values for the application
+    // Groups the fixed OrderStatus choices used by entities
     public enum OrderStatus {
+        // List the allowed values for this enum
         PENDING,PAID,PROCESSING,SHIPPED,DELIVERED,CANCELLED
     }
     // Lists the allowed PaymentMethod values for the application
