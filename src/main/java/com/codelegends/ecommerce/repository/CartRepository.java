@@ -6,6 +6,7 @@ import java.util.*;
 // Access cart records without writing SQL by hand
 public interface CartRepository extends JpaRepository<Cart,Long> {
     // Fetch only records that are still active
+    // Let Spring Data build the active cart query from the name
     List<Cart> findAllByIsActiveTrue();
     // Look up an active record by its id
     Optional<Cart> findByIdAndIsActiveTrue(Long id);
