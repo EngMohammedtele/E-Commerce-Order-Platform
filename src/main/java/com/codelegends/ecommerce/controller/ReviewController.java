@@ -4,7 +4,9 @@ import com.codelegends.ecommerce.service.ReviewService;
 import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/reviews")
+// Handles web requests for review operations
 public class ReviewController extends AbstractCrudController<ReviewDTO> {
+    // Keep the service dependency ready for this class
     private final ReviewService service;
     public ReviewController(ReviewService s) {
         super(s);
