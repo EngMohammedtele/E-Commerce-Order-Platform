@@ -42,6 +42,7 @@ public class GlobalExceptionHandler {
     }
     // Handle this kind of exception in one place
     // Catch any error that was not handled above
+    // Handle unexpected application errors safely
     @ExceptionHandler(Exception.class) ResponseEntity<ErrorResponse> generic(Exception e) {
         // Return the result to the calling code
         return response(HttpStatus.INTERNAL_SERVER_ERROR,"Unexpected server error");
