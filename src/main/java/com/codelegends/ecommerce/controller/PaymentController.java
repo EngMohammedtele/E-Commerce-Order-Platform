@@ -4,6 +4,7 @@ import com.codelegends.ecommerce.service.PaymentService;
 import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/payments")
+// Handles web requests for payment operations
 public class PaymentController extends AbstractCrudController<PaymentDTO> {
     public PaymentController(PaymentService s) {
         super(s);
