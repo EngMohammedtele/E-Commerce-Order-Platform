@@ -16,11 +16,16 @@ public class CartItemDTO {
     // Store the id value for this object
     // Expose the database id when this CartItem is returned
     private Long id;
+    // Make sure the quantity value is provided
     @NotNull
+    // Validate that the quantity value is greater than zero
     @Positive
     // Store the quantity value for this object
+    // Carry how many units are requested
     private Integer quantity;
+    // Make sure the cart id value is provided
     @NotNull
+    // Validate that the cart id value is greater than zero
     @Positive
     // Store the cartId value for this object
     private Long cartId;
