@@ -18,13 +18,19 @@ public class AddressDTO {
     private Long id;
     // Require the street value to contain text
     @NotBlank
+    // Keep the street text inside the allowed length
     @Size(max=200)
     // Store the street value for this object
+    // Hold the street line for the address
     private String street;
+    // Require the city value to contain text
     @NotBlank
+    // Keep the city text inside the allowed length
     @Size(max=100)
     // Store the city value for this object
+    // Carry the city name for the address
     private String city;
+    // Require the postal code value to contain text
     @NotBlank
     @Size(max=20)
     // Store the postalCode value for this object
