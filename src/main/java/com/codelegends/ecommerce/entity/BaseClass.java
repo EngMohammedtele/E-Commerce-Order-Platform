@@ -33,9 +33,13 @@ public abstract class BaseClass {
     // Require the updated date column to have a value
     @Column(nullable=false)
     // Store the updatedDate value for this object
+    // Remember when this row was last changed
     private LocalDateTime updatedDate;
+    // Run this method before the entity is first saved
     @PrePersist void prePersist() {
+        // Set both timestamps when the row is created
         createdDate=updatedDate=LocalDateTime.now();
+        // Make new rows active by default
         isActive=true;
     }
     @PreUpdate void preUpdate() {
