@@ -19,13 +19,19 @@ public class ProductDTO {
     private Long id;
     // Require the name value to contain text
     @NotBlank
+    // Keep the name text inside the allowed length
     @Size(max=120)
     // Store the name value for this object
+    // Carry the display name for this Product
     private String name;
+    // Make sure the price value is provided
     @NotNull
+    // Require the price amount to meet the minimum value
     @DecimalMin("0.01")
     // Store the price value for this object
+    // Send the product price as money data
     private BigDecimal price;
+    // Make sure the stock quantity value is provided
     @NotNull
     @PositiveOrZero
     // Store the stockQuantity value for this object
