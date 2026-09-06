@@ -34,6 +34,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class) ResponseEntity<ErrorResponse> validation(MethodArgumentNotValidException e) {
         // Collect validation messages into one readable string
         // Read all field validation errors from the binding result
+        // Join field names and messages into one response string
         String m=e.getBindingResult().getFieldErrors().stream().map(x->x.getField()+": "+x.getDefaultMessage()).collect(Collectors.joining(", "));
         // Return the result to the calling code
         return response(HttpStatus.BAD_REQUEST,m);
