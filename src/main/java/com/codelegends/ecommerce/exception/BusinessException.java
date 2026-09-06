@@ -4,6 +4,7 @@ package com.codelegends.ecommerce.exception;
 // Extend RuntimeException so callers are not forced to catch it
 public class BusinessException extends RuntimeException {
     // Create the exception with a readable message
+    // Receive the text that explains the business failure
     public BusinessException(String message) {
         super(message);
     }
