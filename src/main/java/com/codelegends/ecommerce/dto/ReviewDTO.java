@@ -48,10 +48,13 @@ public class ReviewDTO {
     // Validate that the product id value is greater than zero
     @Positive
     // Store the productId value for this object
+    // Identify the product linked to this data
     private Long productId;
     // Convert one entity object into a DTO
+    // Start mapping one database entity into API data
     public static ReviewDTO convertToDTO(Review e) {
         // Build and return the DTO with copied values
+        // Copy only API-safe fields into the DTO result
         return builder().id(e.getId()).rating(e.getRating()).comment(e.getComment()).reviewDate(e.getReviewDate()).customerId(e.getCustomer().getId()).productId(e.getProduct().getId()).build();
     }
     // Convert each entity in the list into a DTO
