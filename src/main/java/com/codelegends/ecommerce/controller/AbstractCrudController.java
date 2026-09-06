@@ -26,14 +26,20 @@ public abstract class AbstractCrudController<D> {
     }
     // Find one record using the requested id
     @GetMapping("/{id}")public D one(@PathVariable Long id) {
+        // Find one record using the requested id
         return service.getById(id);
     }
+    // Update the stored record with new values
     @PutMapping("/{id}")public D update(@PathVariable Long id,@Valid
     @RequestBody D d) {
+        // Update the stored record with new values
         return service.update(id,d);
     }
+    // Mark the selected record as inactive
     @DeleteMapping("/{id}")public ResponseEntity<Void>delete(@PathVariable Long id) {
+        // Mark the selected record as inactive
         service.delete(id);
+        // Return the result to the calling code
         return ResponseEntity.noContent().build();
     }
 }
