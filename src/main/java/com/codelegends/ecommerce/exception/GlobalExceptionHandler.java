@@ -19,6 +19,7 @@ public class GlobalExceptionHandler {
     }
     // Handle this kind of exception in one place
     @ExceptionHandler( {
+        // Group bad request exception types together
         BusinessException.class,IllegalArgumentException.class
     }
     ) ResponseEntity<ErrorResponse> badRequest(RuntimeException e) {
