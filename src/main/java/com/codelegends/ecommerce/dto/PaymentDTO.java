@@ -18,13 +18,18 @@ public class PaymentDTO {
     // Store the id value for this object
     // Expose the database id when this Payment is returned
     private Long id;
+    // Validate that the amount value is greater than zero
     @Positive
     // Store the amount value for this object
+    // Carry the payment amount for the order
     private BigDecimal amount;
+    // Make sure the method value is provided
     @NotNull
     // Store the method value for this object
+    // Show how the payment was made
     private Enums.PaymentMethod method;
     // Store the status value for this object
+    // Expose the current Payment status
     private Enums.PaymentStatus status;
     // Store the paidDate value for this object
     private LocalDateTime paidDate;
