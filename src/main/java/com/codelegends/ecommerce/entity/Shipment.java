@@ -11,11 +11,15 @@ import static com.codelegends.ecommerce.entity.Enums.*;
 @Setter
 // Give JPA an empty constructor to create objects
 @NoArgsConstructor
+// Add table rules for unique Shipment records
 @Table(uniqueConstraints=@UniqueConstraint(columnNames="trackingNumber"))
 // Defines the Shipment type used by the ecommerce app
+// Represents the Shipment database object in Java
 public class Shipment extends BaseClass {
+    // Require the tracking number column to have a value
     @Column(nullable=false,length=80)
     // Store the trackingNumber value for this object
+    // Keep the unique shipment tracking number
     private String trackingNumber;
     @Enumerated(EnumType.STRING)
     @Column(nullable=false,length=20)
