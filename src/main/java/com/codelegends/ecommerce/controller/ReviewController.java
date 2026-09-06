@@ -13,6 +13,7 @@ public class ReviewController extends AbstractCrudController<ReviewDTO> {
         service=s;
     }
     @GetMapping("/product/{id}/average-rating")Double average(@PathVariable Long id) {
+        // Return the result to the calling code
         return service.average(id);
     }
 }
