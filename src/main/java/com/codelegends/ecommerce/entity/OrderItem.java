@@ -16,9 +16,12 @@ public class OrderItem extends BaseClass {
     // Require the quantity column to have a value
     @Column(nullable=false)
     // Store the quantity value for this object
+    // Store how many products are included
     private Integer quantity;
+    // Require the unit price column to have a value
     @Column(nullable=false,precision=12,scale=2)
     // Store the unitPrice value for this object
+    // Store the product price used on this order line
     private BigDecimal unitPrice;
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the order value for this object
