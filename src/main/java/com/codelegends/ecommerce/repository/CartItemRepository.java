@@ -10,5 +10,6 @@ public interface CartItemRepository extends JpaRepository<CartItem,Long> {
     // Look up an active record by its id
     Optional<CartItem> findByIdAndIsActiveTrue(Long id);
     // Search active records using this field value
+    // Search for one active item using cart and product ids
     Optional<CartItem> findByCartIdAndProductIdAndIsActiveTrue(Long c,Long p);
 }
