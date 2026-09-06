@@ -18,13 +18,19 @@ public class CustomerDTO {
     private Long id;
     // Require the name value to contain text
     @NotBlank
+    // Keep the name text inside the allowed length
     @Size(max=100)
     // Store the name value for this object
+    // Carry the display name for this Customer
     private String name;
+    // Require the email value to contain text
     @NotBlank
+    // Check that the email has a valid format
     @Email
+    // Keep the email text inside the allowed length
     @Size(max=150)
     // Store the email value for this object
+    // Hold the customer email sent through the API
     private String email;
     @NotBlank
     @Size(max=20)
