@@ -30,13 +30,18 @@ public class OrderItemDTO {
     // Validate that the order id value is greater than zero
     @Positive
     // Store the orderId value for this object
+    // Reference the order connected to this data
     private Long orderId;
+    // Validate that the product id value is greater than zero
     @Positive
     // Store the productId value for this object
+    // Identify the product linked to this data
     private Long productId;
     // Convert one entity object into a DTO
+    // Start mapping one database entity into API data
     public static OrderItemDTO convertToDTO(OrderItem e) {
         // Build and return the DTO with copied values
+        // Copy only API-safe fields into the DTO result
         return builder().id(e.getId()).quantity(e.getQuantity()).unitPrice(e.getUnitPrice()).orderId(e.getOrder().getId()).productId(e.getProduct().getId()).build();
     }
     // Convert each entity in the list into a DTO
