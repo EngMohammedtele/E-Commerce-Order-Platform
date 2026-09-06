@@ -46,11 +46,15 @@ public class Product extends BaseClass {
     // Store the store value for this object
     // Connect this row to the owning store
     private Store store;
+    // Connect this Product to many cart items records
     @OneToMany(mappedBy="product")
     // Store the list of related cartItems entries
+    // List cart rows that include this product
     private List<CartItem> cartItems=new ArrayList<>();
+    // Connect this Product to many order items records
     @OneToMany(mappedBy="product")
     // Store the list of related orderItems entries
+    // List order rows that include this product
     private List<OrderItem> orderItems=new ArrayList<>();
     @OneToMany(mappedBy="product")
     // Store the list of related reviews entries
