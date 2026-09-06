@@ -23,10 +23,13 @@ public class OrderItem extends BaseClass {
     // Store the unitPrice value for this object
     // Store the product price used on this order line
     private BigDecimal unitPrice;
+    // Link many OrderItem records to one order record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the order value for this object
     private Order order;
+    // Link many OrderItem records to one product record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the product value for this object
+    // Link this row to the related product
     private Product product;
 }
