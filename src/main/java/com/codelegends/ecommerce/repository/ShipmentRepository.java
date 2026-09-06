@@ -8,5 +8,6 @@ public interface ShipmentRepository extends JpaRepository<Shipment,Long> {
     // Fetch only records that are still active
     List<Shipment> findAllByIsActiveTrue();
     // Look up an active record by its id
+    // Find one active shipment by its id
     Optional<Shipment> findByIdAndIsActiveTrue(Long id);
 }
