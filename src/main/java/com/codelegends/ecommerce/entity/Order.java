@@ -50,7 +50,9 @@ public class Order extends BaseClass {
     // Store the payment value for this object
     // Connect the order to its payment row
     private Payment payment;
+    // Connect this Order to one shipment record
     @OneToOne(mappedBy="order",cascade=CascadeType.ALL)
     // Store the shipment value for this object
+    // Connect the order to its shipment row
     private Shipment shipment;
 }
