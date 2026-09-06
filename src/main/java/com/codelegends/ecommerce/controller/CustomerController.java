@@ -21,15 +21,18 @@ public class CustomerController extends AbstractCrudController<CustomerDTO> {
         return carts.add(customerId,productId,quantity);
     }
     @PutMapping("/{customerId}/cart/items/{itemId}")CartDTO quantity(@PathVariable Long customerId,@PathVariable Long itemId,@RequestParam int quantity) {
+        // Return the result to the calling code
         return carts.quantity(customerId,itemId,quantity);
     }
     @DeleteMapping("/{customerId}/cart/items/{itemId}")void remove(@PathVariable Long customerId,@PathVariable Long itemId) {
         carts.remove(customerId,itemId);
     }
     @GetMapping("/{id}/orders")java.util.List<OrderDTO>customerOrders(@PathVariable Long id) {
+        // Return the result to the calling code
         return orders.customerOrders(id);
     }
     @GetMapping("/{id}/total-spent")BigDecimal spent(@PathVariable Long id) {
+        // Return the result to the calling code
         return orders.totalSpent(id);
     }
 }
