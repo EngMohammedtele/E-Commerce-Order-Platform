@@ -23,10 +23,14 @@ public abstract class BaseClass {
     // Require the is active column to have a value
     @Column(nullable=false)
     // Store the isActive value for this object
+    // Keep track of whether this row is active
     private boolean isActive=true;
+    // Require the created date column to have a value
     @Column(nullable=false,updatable=false)
     // Store the createdDate value for this object
+    // Remember when this row was first created
     private LocalDateTime createdDate;
+    // Require the updated date column to have a value
     @Column(nullable=false)
     // Store the updatedDate value for this object
     private LocalDateTime updatedDate;
