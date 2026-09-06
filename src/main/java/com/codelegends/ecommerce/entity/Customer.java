@@ -31,13 +31,19 @@ public class Customer extends BaseClass {
     // Store the phoneNumber value for this object
     // Save the customer phone number
     private String phoneNumber;
+    // Save the gender enum as readable text
     @Enumerated(EnumType.STRING)
+    // Require the gender column to have a value
     @Column(nullable=false,length=10)
     // Store the gender value for this object
+    // Store the selected gender enum value
     private Gender gender;
+    // Link many Customer records to one store record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the store value for this object
+    // Connect this row to the owning store
     private Store store;
+    // Connect this Customer to one cart record
     @OneToOne(mappedBy="customer")
     // Store the cart value for this object
     private Cart cart;
