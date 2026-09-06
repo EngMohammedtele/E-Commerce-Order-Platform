@@ -16,14 +16,20 @@ import static com.codelegends.ecommerce.entity.Enums.*;
 // Defines the Customer type used by the ecommerce app
 // Represents the Customer database object in Java
 public class Customer extends BaseClass {
+    // Require the name column to have a value
     @Column(nullable=false,length=100)
     // Store the name value for this object
+    // Store the Customer name in the database
     private String name;
+    // Require the email column to have a value
     @Column(nullable=false,length=150)
     // Store the email value for this object
+    // Hold the email used to identify the customer
     private String email;
+    // Require the phone number column to have a value
     @Column(nullable=false,length=20)
     // Store the phoneNumber value for this object
+    // Save the customer phone number
     private String phoneNumber;
     @Enumerated(EnumType.STRING)
     @Column(nullable=false,length=10)
