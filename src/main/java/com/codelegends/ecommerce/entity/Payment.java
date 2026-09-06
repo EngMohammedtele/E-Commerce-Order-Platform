@@ -13,10 +13,14 @@ import static com.codelegends.ecommerce.entity.Enums.*;
 // Give JPA an empty constructor to create objects
 @NoArgsConstructor
 // Defines the Payment type used by the ecommerce app
+// Represents the Payment database object in Java
 public class Payment extends BaseClass {
+    // Require the amount column to have a value
     @Column(nullable=false,precision=12,scale=2)
     // Store the amount value for this object
+    // Hold the payment amount saved for the order
     private BigDecimal amount;
+    // Save the method enum as readable text
     @Enumerated(EnumType.STRING)
     @Column(nullable=false,length=30)
     // Store the method value for this object
