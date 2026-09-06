@@ -4,10 +4,14 @@ import lombok.Getter;
 // Update this entity field from the DTO data
 import lombok.Setter;
 import java.time.LocalDateTime;
+// Share these fields with child entity tables
 @MappedSuperclass
+// Let Lombok create getter methods for fields
 @Getter
+// Let Lombok create setter methods for fields
 @Setter
 // Defines the BaseClass type used by the ecommerce app
+// Represents the BaseClass database object in Java
 public abstract class BaseClass {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
