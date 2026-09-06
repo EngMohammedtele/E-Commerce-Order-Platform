@@ -6,6 +6,7 @@ public class BusinessException extends RuntimeException {
     // Create the exception with a readable message
     // Receive the text that explains the business failure
     public BusinessException(String message) {
+        // Pass the message to the parent exception class
         super(message);
     }
 }
