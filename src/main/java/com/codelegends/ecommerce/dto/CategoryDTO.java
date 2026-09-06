@@ -43,8 +43,10 @@ public class CategoryDTO {
         return builder().id(e.getId()).name(e.getName()).description(e.getDescription()).storeId(e.getStore().getId()).build();
     }
     // Convert each entity in the list into a DTO
+    // Prepare a DTO list from many database rows
     public static List<CategoryDTO> convertToDTO(List<Category>x) {
         // Return the converted stream results to the caller
+        // Map every entity by using the single-item converter
         return x.stream().map(CategoryDTO::convertToDTO).toList();
     }
 }
