@@ -32,12 +32,17 @@ public class PaymentDTO {
     // Expose the current Payment status
     private Enums.PaymentStatus status;
     // Store the paidDate value for this object
+    // Store when the payment was completed
     private LocalDateTime paidDate;
+    // Make sure the order id value is provided
     @NotNull
+    // Validate that the order id value is greater than zero
     @Positive
     // Store the orderId value for this object
+    // Reference the order connected to this data
     private Long orderId;
     // Convert one entity object into a DTO
+    // Start mapping one database entity into API data
     public static PaymentDTO convertToDTO(Payment e) {
         // Build and return the DTO with copied values
         return builder().id(e.getId()).amount(e.getAmount()).method(e.getMethod()).status(e.getStatus()).paidDate(e.getPaidDate()).orderId(e.getOrder().getId()).build();
