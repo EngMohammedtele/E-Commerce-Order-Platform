@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.*;
 // Describes the AddressRepository contract used by this layer
 // Provides database operations for Address entities
+// Use Address as the entity type and Long as the id type
 public interface AddressRepository extends JpaRepository<Address,Long> {
     // Fetch only records that are still active
     List<Address> findAllByIsActiveTrue();
