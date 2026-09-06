@@ -41,11 +41,14 @@ public class CartItemDTO {
     // Start mapping one database entity into API data
     public static CartItemDTO convertToDTO(CartItem e) {
         // Build and return the DTO with copied values
+        // Copy only API-safe fields into the DTO result
         return builder().id(e.getId()).quantity(e.getQuantity()).cartId(e.getCart().getId()).productId(e.getProduct().getId()).build();
     }
     // Convert each entity in the list into a DTO
+    // Prepare a DTO list from many database rows
     public static List<CartItemDTO> convertToDTO(List<CartItem>x) {
         // Return the converted stream results to the caller
+        // Map every entity by using the single-item converter
         return x.stream().map(CartItemDTO::convertToDTO).toList();
     }
 }
