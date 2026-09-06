@@ -32,10 +32,14 @@ import java.time.*;
     // Store the reviewDate value for this object
     // Store the date and time of the review
     private LocalDateTime reviewDate;
+    // Link many Review records to one customer record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the customer value for this object
+    // Point this record to its customer
     private Customer customer;
+    // Link many Review records to one product record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the product value for this object
+    // Link this row to the related product
     private Product product;
 }
