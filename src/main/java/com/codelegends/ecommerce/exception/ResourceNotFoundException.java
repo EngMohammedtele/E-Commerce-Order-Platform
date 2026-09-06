@@ -6,6 +6,7 @@ public class ResourceNotFoundException extends RuntimeException {
     // Create the exception with a clear not-found message
     // Receive the message that names the missing resource
     public ResourceNotFoundException(String message) {
+        // Send the message up to RuntimeException
         super(message);
     }
 }
