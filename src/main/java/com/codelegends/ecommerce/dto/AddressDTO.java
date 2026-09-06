@@ -32,13 +32,19 @@ public class AddressDTO {
     private String city;
     // Require the postal code value to contain text
     @NotBlank
+    // Keep the postal code text inside the allowed length
     @Size(max=20)
     // Store the postalCode value for this object
+    // Keep the postal code used for delivery
     private String postalCode;
+    // Make sure the type value is provided
     @NotNull
     // Store the type value for this object
+    // Tell whether the address is home, work, or another type
     private Enums.AddressType type;
+    // Make sure the customer id value is provided
     @NotNull
+    // Validate that the customer id value is greater than zero
     @Positive
     // Store the customerId value for this object
     private Long customerId;
