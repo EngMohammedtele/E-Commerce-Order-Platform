@@ -14,10 +14,14 @@ import java.util.*;
 // Moves store data between the API and service layers
 public class StoreDTO {
     // Store the id value for this object
+    // Expose the database id when this Store is returned
     private Long id;
+    // Require the name value to contain text
     @NotBlank
+    // Keep the name text inside the allowed length
     @Size(max=100)
     // Store the name value for this object
+    // Carry the display name for this Store
     private String name;
     @NotBlank
     @Size(max=200)
