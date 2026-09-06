@@ -5,8 +5,11 @@ import org.springframework.web.bind.annotation.*;
 import java.math.*;
 @RestController
 @RequestMapping("/api/customers")
+// Handles web requests for customer operations
 public class CustomerController extends AbstractCrudController<CustomerDTO> {
+    // Keep the carts dependency ready for this class
     private final CartService carts;
+    // Keep the orders dependency ready for this class
     private final OrderService orders;
     public CustomerController(CustomerService s,CartService c,OrderService o) {
         super(s);
@@ -14,6 +17,7 @@ public class CustomerController extends AbstractCrudController<CustomerDTO> {
         orders=o;
     }
     @PostMapping("/{customerId}/cart/products/{productId}")CartDTO add(@PathVariable Long customerId,@PathVariable Long productId,@RequestParam int quantity) {
+        // Return the result to the calling code
         return carts.add(customerId,productId,quantity);
     }
     @PutMapping("/{customerId}/cart/items/{itemId}")CartDTO quantity(@PathVariable Long customerId,@PathVariable Long itemId,@RequestParam int quantity) {
