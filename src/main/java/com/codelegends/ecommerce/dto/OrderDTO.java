@@ -31,14 +31,19 @@ public class OrderDTO {
     private BigDecimal totalAmount;
     // Make sure the customer id value is provided
     @NotNull
+    // Validate that the customer id value is greater than zero
     @Positive
     // Store the customerId value for this object
+    // Point this DTO back to the related customer
     private Long customerId;
     // Store the list of related items entries
+    // Include item DTOs nested inside this response
     private List<OrderItemDTO> items;
     // Convert one entity object into a DTO
+    // Start mapping one database entity into API data
     public static OrderDTO convertToDTO(Order e) {
         // Build and return the DTO with copied values
+        // Copy only API-safe fields into the DTO result
         return builder().id(e.getId()).orderDate(e.getOrderDate()).status(e.getStatus()).totalAmount(e.getTotalAmount()).customerId(e.getCustomer().getId()).items(OrderItemDTO.convertToDTO(e.getItems())).build();
     }
     // Convert each entity in the list into a DTO
