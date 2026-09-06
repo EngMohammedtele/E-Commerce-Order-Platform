@@ -31,14 +31,20 @@ public class Product extends BaseClass {
     // Store the stockQuantity value for this object
     // Track how many items are in stock
     private Integer stockQuantity;
+    // Require the sku column to have a value
     @Column(nullable=false,length=50)
     // Store the sku value for this object
+    // Keep the unique product SKU value
     private String sku;
+    // Link many Product records to one category record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the category value for this object
+    // Link this product to its category
     private Category category;
+    // Link many Product records to one store record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the store value for this object
+    // Connect this row to the owning store
     private Store store;
     @OneToMany(mappedBy="product")
     // Store the list of related cartItems entries
