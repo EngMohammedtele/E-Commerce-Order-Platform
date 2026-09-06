@@ -5,10 +5,15 @@ import java.time.*;
 import java.math.*;
 import java.util.*;
 import static com.codelegends.ecommerce.entity.Enums.*;
+// Mark Order as a table-backed database entity
 @Entity
+// Let Lombok create getter methods for fields
 @Getter
+// Let Lombok create setter methods for fields
 @Setter
+// Give JPA an empty constructor to create objects
 @NoArgsConstructor
+// Map this entity to its database table
 @Table(name="customer_orders")
 // Defines the Order type used by the ecommerce app
 public class Order extends BaseClass {
