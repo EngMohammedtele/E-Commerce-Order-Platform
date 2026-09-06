@@ -31,7 +31,9 @@ public class Shipment extends BaseClass {
     // Store the shippedDate value for this object
     // Store when the shipment was sent
     private LocalDateTime shippedDate;
+    // Connect this Shipment to one order record
     @OneToOne(optional=false,fetch=FetchType.LAZY)
+    // Keep this foreign key unique in the table
     @JoinColumn(unique=true)
     // Store the order value for this object
     private Order order;
