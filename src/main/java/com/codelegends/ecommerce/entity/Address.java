@@ -11,10 +11,14 @@ import static com.codelegends.ecommerce.entity.Enums.*;
 // Give JPA an empty constructor to create objects
 @NoArgsConstructor
 // Defines the Address type used by the ecommerce app
+// Represents the Address database object in Java
 public class Address extends BaseClass {
+    // Require the street column to have a value
     @Column(nullable=false,length=200)
     // Store the street value for this object
+    // Hold the street part of the saved address
     private String street;
+    // Require the city column to have a value
     @Column(nullable=false,length=100)
     // Store the city value for this object
     private String city;
