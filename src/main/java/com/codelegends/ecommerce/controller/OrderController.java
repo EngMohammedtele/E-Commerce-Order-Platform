@@ -13,6 +13,7 @@ public class OrderController extends AbstractCrudController<OrderDTO> {
         service=s;
     }
     @PostMapping("/place/{customerId}")OrderDTO place(@PathVariable Long customerId) {
+        // Return the result to the calling code
         return service.place(customerId);
     }
 }
