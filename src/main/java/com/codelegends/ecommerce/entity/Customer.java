@@ -3,12 +3,18 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.util.*;
 import static com.codelegends.ecommerce.entity.Enums.*;
+// Mark Customer as a table-backed database entity
 @Entity
+// Let Lombok create getter methods for fields
 @Getter
+// Let Lombok create setter methods for fields
 @Setter
+// Give JPA an empty constructor to create objects
 @NoArgsConstructor
+// Add table rules for unique Customer records
 @Table(uniqueConstraints=@UniqueConstraint(columnNames="email"))
 // Defines the Customer type used by the ecommerce app
+// Represents the Customer database object in Java
 public class Customer extends BaseClass {
     @Column(nullable=false,length=100)
     // Store the name value for this object
