@@ -36,7 +36,9 @@ public final class Enums {
         PENDING,PAID,FAILED,REFUNDED
     }
     // Lists the allowed ShipmentStatus values for the application
+    // Groups the fixed ShipmentStatus choices used by entities
     public enum ShipmentStatus {
+        // List the allowed values for this enum
         PREPARING,SHIPPED,IN_TRANSIT,DELIVERED
     }
 }
