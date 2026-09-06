@@ -12,5 +12,6 @@ public interface ReviewRepository extends JpaRepository<Review,Long> {
     // Check whether this customer already reviewed the product
     boolean existsByCustomerIdAndProductIdAndIsActiveTrue(Long c,Long p);
     // Use this custom SQL query for a special lookup
+    // Use JPQL to calculate the average product rating
     @Query("select coalesce(avg(r.rating),0) from Review r where r.product.id=?1 and r.isActive=true") Double averageRating(Long id);
 }
