@@ -3,6 +3,7 @@ import com.codelegends.ecommerce.entity.OrderItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.*;
 // Describes the OrderItemRepository contract used by this layer
+// Handles database access for order item records
 public interface OrderItemRepository extends JpaRepository<OrderItem,Long> {
     // Fetch only records that are still active
     List<OrderItem> findAllByIsActiveTrue();
