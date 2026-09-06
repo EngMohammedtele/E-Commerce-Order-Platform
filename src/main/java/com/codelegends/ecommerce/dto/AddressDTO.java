@@ -7,26 +7,37 @@ import java.util.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+// Moves address data between the API and service layers
 public class AddressDTO {
+    // Store the id value for this object
     private Long id;
     @NotBlank
     @Size(max=200)
+    // Store the street value for this object
     private String street;
     @NotBlank
     @Size(max=100)
+    // Store the city value for this object
     private String city;
     @NotBlank
     @Size(max=20)
+    // Store the postalCode value for this object
     private String postalCode;
     @NotNull
+    // Store the type value for this object
     private Enums.AddressType type;
     @NotNull
     @Positive
+    // Store the customerId value for this object
     private Long customerId;
+    // Convert one entity object into a DTO
     public static AddressDTO convertToDTO(Address e) {
+        // Build and return the DTO with copied values
         return builder().id(e.getId()).street(e.getStreet()).city(e.getCity()).postalCode(e.getPostalCode()).type(e.getType()).customerId(e.getCustomer().getId()).build();
     }
+    // Convert each entity in the list into a DTO
     public static List<AddressDTO> convertToDTO(List<Address>x) {
+        // Return the converted stream results to the caller
         return x.stream().map(AddressDTO::convertToDTO).toList();
     }
 }
