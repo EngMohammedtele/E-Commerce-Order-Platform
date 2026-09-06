@@ -6,6 +6,7 @@ import java.util.*;
 // Handles database access for order item records
 public interface OrderItemRepository extends JpaRepository<OrderItem,Long> {
     // Fetch only records that are still active
+    // Return active order items in a list
     List<OrderItem> findAllByIsActiveTrue();
     // Look up an active record by its id
     Optional<OrderItem> findByIdAndIsActiveTrue(Long id);
