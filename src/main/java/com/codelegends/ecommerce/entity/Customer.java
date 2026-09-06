@@ -46,12 +46,17 @@ public class Customer extends BaseClass {
     // Connect this Customer to one cart record
     @OneToOne(mappedBy="customer")
     // Store the cart value for this object
+    // Point this item back to its cart
     private Cart cart;
+    // Connect this Customer to many addresses records
     @OneToMany(mappedBy="customer")
     // Store the list of related addresses entries
+    // Store all address rows for this customer
     private List<Address> addresses=new ArrayList<>();
+    // Connect this Customer to many orders records
     @OneToMany(mappedBy="customer")
     // Store the list of related orders entries
+    // Keep every order connected to this customer
     private List<Order> orders=new ArrayList<>();
     @OneToMany(mappedBy="customer")
     // Store the list of related reviews entries
