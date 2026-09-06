@@ -22,10 +22,14 @@ public class Payment extends BaseClass {
     private BigDecimal amount;
     // Save the method enum as readable text
     @Enumerated(EnumType.STRING)
+    // Require the method column to have a value
     @Column(nullable=false,length=30)
     // Store the method value for this object
+    // Store the selected payment method
     private PaymentMethod method;
+    // Save the status enum as readable text
     @Enumerated(EnumType.STRING)
+    // Require the status column to have a value
     @Column(nullable=false,length=20)
     // Store the status value for this object
     private PaymentStatus status;
