@@ -4,7 +4,9 @@ import com.codelegends.ecommerce.service.OrderService;
 import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/orders")
+// Handles web requests for order operations
 public class OrderController extends AbstractCrudController<OrderDTO> {
+    // Keep the service dependency ready for this class
     private final OrderService service;
     public OrderController(OrderService s) {
         super(s);
