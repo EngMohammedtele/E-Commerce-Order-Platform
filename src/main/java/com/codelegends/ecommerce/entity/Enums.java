@@ -24,11 +24,15 @@ public final class Enums {
         PENDING,PAID,PROCESSING,SHIPPED,DELIVERED,CANCELLED
     }
     // Lists the allowed PaymentMethod values for the application
+    // Groups the fixed PaymentMethod choices used by entities
     public enum PaymentMethod {
+        // List the allowed values for this enum
         CARD,CASH_ON_DELIVERY,BANK_TRANSFER
     }
     // Lists the allowed PaymentStatus values for the application
+    // Groups the fixed PaymentStatus choices used by entities
     public enum PaymentStatus {
+        // List the allowed values for this enum
         PENDING,PAID,FAILED,REFUNDED
     }
     // Lists the allowed ShipmentStatus values for the application
