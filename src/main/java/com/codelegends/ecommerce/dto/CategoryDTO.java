@@ -16,12 +16,17 @@ public class CategoryDTO {
     // Store the id value for this object
     // Expose the database id when this Category is returned
     private Long id;
+    // Require the name value to contain text
     @NotBlank
+    // Keep the name text inside the allowed length
     @Size(max=100)
     // Store the name value for this object
+    // Carry the display name for this Category
     private String name;
+    // Keep the description text inside the allowed length
     @Size(max=500)
     // Store the description value for this object
+    // Hold optional text that describes the category
     private String description;
     @NotNull
     @Positive
