@@ -17,12 +17,17 @@ public class OrderItemDTO {
     // Store the id value for this object
     // Expose the database id when this OrderItem is returned
     private Long id;
+    // Validate that the quantity value is greater than zero
     @Positive
     // Store the quantity value for this object
+    // Carry how many units are requested
     private Integer quantity;
+    // Require the unit price amount to meet the minimum value
     @DecimalMin("0.01")
     // Store the unitPrice value for this object
+    // Keep the single item price used for this order line
     private BigDecimal unitPrice;
+    // Validate that the order id value is greater than zero
     @Positive
     // Store the orderId value for this object
     private Long orderId;
