@@ -31,8 +31,11 @@ public class Store extends BaseClass {
     // Connect this Store to many products records
     @OneToMany(mappedBy="store")
     // Store the list of related products entries
+    // Keep products that belong to this store
     private List<Product> products=new ArrayList<>();
+    // Connect this Store to many customers records
     @OneToMany(mappedBy="store")
     // Store the list of related customers entries
+    // Keep customers registered under this store
     private List<Customer> customers=new ArrayList<>();
 }
