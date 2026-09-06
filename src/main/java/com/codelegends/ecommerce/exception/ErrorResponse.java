@@ -5,5 +5,6 @@ import java.time.LocalDateTime;
 // Defines the error body returned by the API
 // Store the HTTP status number in the response
 // Hold the short HTTP error name
+// Carry the detailed message sent to the client
 public record ErrorResponse(int status,String error,String message,LocalDateTime timestamp) {
 }
