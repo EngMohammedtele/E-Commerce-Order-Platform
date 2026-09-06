@@ -19,13 +19,19 @@ public class ReviewDTO {
     private Long id;
     // Make sure the rating value is provided
     @NotNull
+    // Keep the rating at or above the lowest allowed value
     @Min(1)
+    // Keep the rating at or below the highest allowed value
     @Max(5)
     // Store the rating value for this object
+    // Carry the score chosen by the customer
     private Integer rating;
+    // Keep the comment text inside the allowed length
     @Size(max=1000)
     // Store the comment value for this object
+    // Hold the optional review text from the customer
     private String comment;
+    // Prevent the review date date from being in the future
     @PastOrPresent
     // Store the reviewDate value for this object
     private LocalDateTime reviewDate;
