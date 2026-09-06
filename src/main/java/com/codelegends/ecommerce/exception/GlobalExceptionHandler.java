@@ -4,6 +4,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import java.time.*;
 import java.util.stream.*;
+// Apply these handlers to REST controllers across the app
 @RestControllerAdvice
 // Defines the GlobalExceptionHandler type used by the ecommerce app
 public class GlobalExceptionHandler {
