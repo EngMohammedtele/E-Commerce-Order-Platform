@@ -16,11 +16,16 @@ import static com.codelegends.ecommerce.entity.Enums.*;
 // Map this entity to its database table
 @Table(name="customer_orders")
 // Defines the Order type used by the ecommerce app
+// Represents the Order database object in Java
 public class Order extends BaseClass {
+    // Require the order date column to have a value
     @Column(nullable=false)
     // Store the orderDate value for this object
+    // Save when the order was created
     private LocalDateTime orderDate;
+    // Save the status enum as readable text
     @Enumerated(EnumType.STRING)
+    // Require the status column to have a value
     @Column(nullable=false,length=20)
     // Store the status value for this object
     private OrderStatus status;
