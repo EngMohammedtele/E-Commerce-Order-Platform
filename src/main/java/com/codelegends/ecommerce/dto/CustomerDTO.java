@@ -32,14 +32,20 @@ public class CustomerDTO {
     // Store the email value for this object
     // Hold the customer email sent through the API
     private String email;
+    // Require the phone number value to contain text
     @NotBlank
+    // Keep the phone number text inside the allowed length
     @Size(max=20)
     // Store the phoneNumber value for this object
+    // Keep the customer phone number for contact details
     private String phoneNumber;
+    // Make sure the gender value is provided
     @NotNull
     // Store the gender value for this object
     private Enums.Gender gender;
+    // Make sure the store id value is provided
     @NotNull
+    // Validate that the store id value is greater than zero
     @Positive
     // Store the storeId value for this object
     private Long storeId;
