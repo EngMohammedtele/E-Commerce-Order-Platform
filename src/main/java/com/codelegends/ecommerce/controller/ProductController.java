@@ -7,13 +7,16 @@ import java.math.*;
 import java.util.*;
 @RestController
 @RequestMapping("/api/products")
+// Handles web requests for product operations
 public class ProductController extends AbstractCrudController<ProductDTO> {
+    // Keep the repo dependency ready for this class
     private final ProductRepository repo;
     public ProductController(ProductService s,ProductRepository r) {
         super(s);
         repo=r;
     }
     @GetMapping("/category/{id}")List<ProductDTO>category(@PathVariable Long id) {
+        // Search active records using this field value
         return ProductDTO.convertToDTO(repo.findByCategoryIdAndIsActiveTrue(id));
     }
     @GetMapping("/below-price")List<ProductDTO>below(@RequestParam BigDecimal price) {
