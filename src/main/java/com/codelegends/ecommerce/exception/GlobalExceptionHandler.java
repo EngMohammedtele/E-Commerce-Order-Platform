@@ -14,6 +14,7 @@ public class GlobalExceptionHandler {
     // Receive the exception that says a record was not found
     @ExceptionHandler(ResourceNotFoundException.class) ResponseEntity<ErrorResponse> notFound(ResourceNotFoundException e) {
         // Return the result to the calling code
+        // Send a 404 response with the exception message
         return response(HttpStatus.NOT_FOUND,e.getMessage());
     }
     // Handle this kind of exception in one place
