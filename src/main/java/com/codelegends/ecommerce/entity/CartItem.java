@@ -1,8 +1,11 @@
 package com.codelegends.ecommerce.entity;
 import jakarta.persistence.*;
 import lombok.*;
+// Mark CartItem as a table-backed database entity
 @Entity
+// Let Lombok create getter methods for fields
 @Getter
+// Let Lombok create setter methods for fields
 @Setter
 @NoArgsConstructor
 @Table(uniqueConstraints=@UniqueConstraint(columnNames= {
