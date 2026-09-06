@@ -58,7 +58,9 @@ public class Customer extends BaseClass {
     // Store the list of related orders entries
     // Keep every order connected to this customer
     private List<Order> orders=new ArrayList<>();
+    // Connect this Customer to many reviews records
     @OneToMany(mappedBy="customer")
     // Store the list of related reviews entries
+    // Store review rows connected to this record
     private List<Review> reviews=new ArrayList<>();
 }
