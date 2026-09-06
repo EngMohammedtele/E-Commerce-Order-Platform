@@ -23,11 +23,15 @@ public class StoreDTO {
     // Store the name value for this object
     // Carry the display name for this Store
     private String name;
+    // Require the location value to contain text
     @NotBlank
+    // Keep the location text inside the allowed length
     @Size(max=200)
     // Store the location value for this object
+    // Hold the store location sent in the DTO
     private String location;
     // Convert one entity object into a DTO
+    // Start mapping one database entity into API data
     public static StoreDTO convertToDTO(Store e) {
         // Build and return the DTO with copied values
         return builder().id(e.getId()).name(e.getName()).location(e.getLocation()).build();
