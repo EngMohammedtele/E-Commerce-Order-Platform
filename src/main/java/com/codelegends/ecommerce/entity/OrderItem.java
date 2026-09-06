@@ -6,13 +6,18 @@ import java.math.*;
 @Getter
 @Setter
 @NoArgsConstructor
+// Defines the OrderItem type used by the ecommerce app
 public class OrderItem extends BaseClass {
     @Column(nullable=false)
+    // Store the quantity value for this object
     private Integer quantity;
     @Column(nullable=false,precision=12,scale=2)
+    // Store the unitPrice value for this object
     private BigDecimal unitPrice;
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
+    // Store the order value for this object
     private Order order;
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
+    // Store the product value for this object
     private Product product;
 }
