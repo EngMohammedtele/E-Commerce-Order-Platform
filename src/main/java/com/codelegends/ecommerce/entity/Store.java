@@ -21,10 +21,14 @@ public class Store extends BaseClass {
     // Require the location column to have a value
     @Column(nullable=false,length=200)
     // Store the location value for this object
+    // Store the physical location of the store
     private String location;
+    // Connect this Store to many categories records
     @OneToMany(mappedBy="store")
     // Store the list of related categories entries
+    // Keep categories that belong to this store
     private List<Category> categories=new ArrayList<>();
+    // Connect this Store to many products records
     @OneToMany(mappedBy="store")
     // Store the list of related products entries
     private List<Product> products=new ArrayList<>();
