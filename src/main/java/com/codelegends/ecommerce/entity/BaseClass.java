@@ -42,7 +42,9 @@ public abstract class BaseClass {
         // Make new rows active by default
         isActive=true;
     }
+    // Run this method before an existing row is updated
     @PreUpdate void preUpdate() {
+        // Refresh the update time before saving changes
         updatedDate=LocalDateTime.now();
     }
 }
