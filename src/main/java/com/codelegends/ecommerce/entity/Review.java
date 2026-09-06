@@ -10,13 +10,17 @@ import java.time.*;
 @Setter
 // Give JPA an empty constructor to create objects
 @NoArgsConstructor
+// Add table rules for unique Review records
 @Table(uniqueConstraints=@UniqueConstraint(columnNames= {
     "customer_id","product_id"
 }
 // Defines the Review type used by the ecommerce app
+// Represents the Review database object in Java
 )) public class Review extends BaseClass {
+    // Require the rating column to have a value
     @Column(nullable=false)
     // Store the rating value for this object
+    // Save the customer rating number
     private Integer rating;
     @Column(length=1000)
     // Store the comment value for this object
