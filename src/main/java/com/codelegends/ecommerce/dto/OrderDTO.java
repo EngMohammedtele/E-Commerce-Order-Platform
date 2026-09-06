@@ -18,13 +18,18 @@ public class OrderDTO {
     // Store the id value for this object
     // Expose the database id when this Order is returned
     private Long id;
+    // Prevent the order date date from being in the future
     @PastOrPresent
     // Store the orderDate value for this object
+    // Carry the date and time when the order was placed
     private LocalDateTime orderDate;
     // Store the status value for this object
+    // Expose the current Order status
     private Enums.OrderStatus status;
     // Store the totalAmount value for this object
+    // Show the full order amount returned to the client
     private BigDecimal totalAmount;
+    // Make sure the customer id value is provided
     @NotNull
     @Positive
     // Store the customerId value for this object
