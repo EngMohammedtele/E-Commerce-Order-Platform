@@ -4,6 +4,7 @@ import com.codelegends.ecommerce.service.CartService;
 import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/carts")
+// Handles web requests for cart operations
 public class CartController extends AbstractCrudController<CartDTO> {
     public CartController(CartService s) {
         super(s);
