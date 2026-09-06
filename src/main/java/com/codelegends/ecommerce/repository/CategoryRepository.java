@@ -6,6 +6,7 @@ import java.util.*;
 // Stores query methods for Category entities
 public interface CategoryRepository extends JpaRepository<Category,Long> {
     // Fetch only records that are still active
+    // Return active categories as a List
     List<Category> findAllByIsActiveTrue();
     // Look up an active record by its id
     Optional<Category> findByIdAndIsActiveTrue(Long id);
