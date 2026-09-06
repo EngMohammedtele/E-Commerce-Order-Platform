@@ -22,6 +22,7 @@ public class GlobalExceptionHandler {
         // Group bad request exception types together
         BusinessException.class,IllegalArgumentException.class
     }
+    // Handle client-side request problems with one method
     ) ResponseEntity<ErrorResponse> badRequest(RuntimeException e) {
         // Return the result to the calling code
         return response(HttpStatus.BAD_REQUEST,e.getMessage());
