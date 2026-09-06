@@ -28,12 +28,17 @@ public class Order extends BaseClass {
     // Require the status column to have a value
     @Column(nullable=false,length=20)
     // Store the status value for this object
+    // Keep the current Order status
     private OrderStatus status;
+    // Require the total amount column to have a value
     @Column(nullable=false,precision=12,scale=2)
     // Store the totalAmount value for this object
+    // Store the full money total for this order
     private BigDecimal totalAmount;
+    // Link many Order records to one customer record
     @ManyToOne(optional=false,fetch=FetchType.LAZY)
     // Store the customer value for this object
+    // Point this record to its customer
     private Customer customer;
     @OneToMany(mappedBy="order",cascade=CascadeType.ALL)
     // Store the list of related items entries
