@@ -31,5 +31,6 @@ public class Category extends BaseClass {
     // Connect this Category to many products records
     @OneToMany(mappedBy="category")
     // Store the list of related products entries
+    // Keep products that belong to this store
     private List<Product> products=new ArrayList<>();
 }
