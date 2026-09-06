@@ -1,0 +1,13 @@
+E-Commerce Platform - Debugging Log
+
+Format: Date | HTTP Status | Error | Cause | Fix
+
+2026-09-06 | 400 | Blank store name | @NotBlank rejected the request | Added a meaningful name.
+2026-09-06 | 404 | Product not found | ID did not exist or was soft-deleted | Checked the product ID and active flag.
+2026-09-06 | 400 | Requested quantity exceeds stock | Cart quantity was greater than stockQuantity | Reduced the requested quantity.
+2026-09-06 | 400 | Cart is empty | Order was requested without active cart items | Added an item before placing the order.
+2026-09-06 | 400 | Order is already paid | A second payment was sent for the same order | Kept one payment per order.
+2026-09-06 | 400 | Customer never ordered this product | Review submitted without a matching OrderItem | Ordered the product first.
+2026-09-06 | 400 | Customer already reviewed this product | Unique customer/product review rule | Updated the existing review instead.
+
+Add every new error you encounter here before submission.

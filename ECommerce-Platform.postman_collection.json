@@ -1,0 +1,42 @@
+{
+  "info": {"name": "E-Commerce Platform", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+  "variable": [
+    {"key":"baseUrl","value":"http://localhost:8080"}, {"key":"storeId","value":"1"}, {"key":"categoryId","value":"1"},
+    {"key":"productId","value":"1"}, {"key":"customerId","value":"1"}, {"key":"cartItemId","value":"1"}, {"key":"orderId","value":"1"}
+  ],
+  "item": [
+    {"name":"1 - Store CRUD","item":[
+      {"name":"Create Store","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"name\": \"Muscat Store\",\n  \"location\": \"Muscat, Oman\"\n}"},"url":"{{baseUrl}}/api/stores"}},
+      {"name":"Get All Stores","request":{"method":"GET","url":"{{baseUrl}}/api/stores"}},
+      {"name":"Get Store By ID","request":{"method":"GET","url":"{{baseUrl}}/api/stores/{{storeId}}"}},
+      {"name":"Update Store","request":{"method":"PUT","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"name\":\"Updated Store\",\"location\":\"Muscat\"}"},"url":"{{baseUrl}}/api/stores/{{storeId}}"}},
+      {"name":"Soft Delete Store","request":{"method":"DELETE","url":"{{baseUrl}}/api/stores/{{storeId}}"}}
+    ]},
+    {"name":"2 - Setup Shopping Flow","item":[
+      {"name":"Create Category","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"name\":\"Electronics\",\"description\":\"Electronic products\",\"storeId\":{{storeId}}}"},"url":"{{baseUrl}}/api/categories"}},
+      {"name":"Create Product","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"name\":\"Headphones\",\"price\":25.50,\"stockQuantity\":20,\"sku\":\"HP-001\",\"categoryId\":{{categoryId}}}"},"url":"{{baseUrl}}/api/products"}},
+      {"name":"Create Customer","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"name\":\"Mohammed\",\"email\":\"mohammed@example.com\",\"phoneNumber\":\"+96890000000\",\"gender\":\"MALE\",\"storeId\":{{storeId}}}"},"url":"{{baseUrl}}/api/customers"}},
+      {"name":"Add Product To Cart","request":{"method":"POST","url":"{{baseUrl}}/api/customers/{{customerId}}/cart/products/{{productId}}?quantity=2"}},
+      {"name":"Update Cart Quantity","request":{"method":"PUT","url":"{{baseUrl}}/api/customers/{{customerId}}/cart/items/{{cartItemId}}?quantity=3"}},
+      {"name":"Place Order","request":{"method":"POST","url":"{{baseUrl}}/api/orders/place/{{customerId}}"}},
+      {"name":"Pay Order","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"amount\":76.50,\"method\":\"CARD\",\"orderId\":{{orderId}}}"},"url":"{{baseUrl}}/api/payments"}},
+      {"name":"Review Product","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"rating\":5,\"comment\":\"Excellent product\",\"customerId\":{{customerId}},\"productId\":{{productId}}}"},"url":"{{baseUrl}}/api/reviews"}}
+    ]},
+    {"name":"3 - Queries And Stats","item":[
+      {"name":"Products In Category","request":{"method":"GET","url":"{{baseUrl}}/api/products/category/{{categoryId}}"}},
+      {"name":"Products Below Price","request":{"method":"GET","url":"{{baseUrl}}/api/products/below-price?price=30"}},
+      {"name":"Low Stock Products","request":{"method":"GET","url":"{{baseUrl}}/api/products/low-stock?threshold=5"}},
+      {"name":"Customer Orders","request":{"method":"GET","url":"{{baseUrl}}/api/customers/{{customerId}}/orders"}},
+      {"name":"Customer Total Spent","request":{"method":"GET","url":"{{baseUrl}}/api/customers/{{customerId}}/total-spent"}},
+      {"name":"Average Rating","request":{"method":"GET","url":"{{baseUrl}}/api/reviews/product/{{productId}}/average-rating"}},
+      {"name":"Store Stats","request":{"method":"GET","url":"{{baseUrl}}/api/stats/stores/{{storeId}}"}},
+      {"name":"Best Selling Product","request":{"method":"GET","url":"{{baseUrl}}/api/stats/best-selling-product"}}
+    ]},
+    {"name":"4 - Error Tests","item":[
+      {"name":"404 Missing Product","request":{"method":"GET","url":"{{baseUrl}}/api/products/999999"}},
+      {"name":"400 Invalid Product","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"name\":\"\",\"price\":-1,\"stockQuantity\":-2,\"sku\":\"\",\"categoryId\":1}"},"url":"{{baseUrl}}/api/products"}},
+      {"name":"400 Out Of Stock","request":{"method":"POST","url":"{{baseUrl}}/api/customers/{{customerId}}/cart/products/{{productId}}?quantity=999999"}},
+      {"name":"400 Duplicate Payment","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"amount\":76.50,\"method\":\"CARD\",\"orderId\":{{orderId}}}"},"url":"{{baseUrl}}/api/payments"}}
+    ]}
+  ]
+}

@@ -1,0 +1,16 @@
+package com.codelegends.ecommerce.controller;
+import com.codelegends.ecommerce.dto.OrderDTO;
+import com.codelegends.ecommerce.service.OrderService;
+import org.springframework.web.bind.annotation.*;
+@RestController
+@RequestMapping("/api/orders")
+public class OrderController extends AbstractCrudController<OrderDTO> {
+    private final OrderService service;
+    public OrderController(OrderService s) {
+        super(s);
+        service=s;
+    }
+    @PostMapping("/place/{customerId}")OrderDTO place(@PathVariable Long customerId) {
+        return service.place(customerId);
+    }
+}
