@@ -11,6 +11,7 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     // Look up an active record by its id
     Optional<Product> findByIdAndIsActiveTrue(Long id);
     // Search active records using this field value
+    // Retrieve active products in the chosen category
     List<Product> findByCategoryIdAndIsActiveTrue(Long id);
     // Search active records using this field value
     List<Product> findByPriceLessThanAndIsActiveTrue(BigDecimal price);
