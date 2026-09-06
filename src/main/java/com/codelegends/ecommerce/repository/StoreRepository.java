@@ -6,6 +6,7 @@ import java.util.*;
 // Provides database operations for Store entities
 public interface StoreRepository extends JpaRepository<Store,Long> {
     // Fetch only records that are still active
+    // Return all store rows that are still active
     List<Store> findAllByIsActiveTrue();
     // Look up an active record by its id
     Optional<Store> findByIdAndIsActiveTrue(Long id);
