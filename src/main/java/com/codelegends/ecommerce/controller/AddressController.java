@@ -4,6 +4,7 @@ import com.codelegends.ecommerce.service.AddressService;
 import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/addresses")
+// Handles web requests for address operations
 public class AddressController extends AbstractCrudController<AddressDTO> {
     public AddressController(AddressService s) {
         super(s);
