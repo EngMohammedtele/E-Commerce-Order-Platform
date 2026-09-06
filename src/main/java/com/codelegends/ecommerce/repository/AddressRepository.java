@@ -3,6 +3,7 @@ import com.codelegends.ecommerce.entity.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.*;
 // Describes the AddressRepository contract used by this layer
+// Provides database operations for Address entities
 public interface AddressRepository extends JpaRepository<Address,Long> {
     // Fetch only records that are still active
     List<Address> findAllByIsActiveTrue();
