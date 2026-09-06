@@ -14,10 +14,14 @@ import java.util.*;
 // Moves cart data between the API and service layers
 public class CartDTO {
     // Store the id value for this object
+    // Expose the database id when this Cart is returned
     private Long id;
+    // Make sure the customer id value is provided
     @NotNull
+    // Validate that the customer id value is greater than zero
     @Positive
     // Store the customerId value for this object
+    // Point this DTO back to the related customer
     private Long customerId;
     // Store the list of related items entries
     private List<CartItemDTO> items;
