@@ -20,9 +20,11 @@ public class ProductController extends AbstractCrudController<ProductDTO> {
         return ProductDTO.convertToDTO(repo.findByCategoryIdAndIsActiveTrue(id));
     }
     @GetMapping("/below-price")List<ProductDTO>below(@RequestParam BigDecimal price) {
+        // Search active records using this field value
         return ProductDTO.convertToDTO(repo.findByPriceLessThanAndIsActiveTrue(price));
     }
     @GetMapping("/low-stock")List<ProductDTO>low(@RequestParam Integer threshold) {
+        // Search active records using this field value
         return ProductDTO.convertToDTO(repo.findByStockQuantityLessThanAndIsActiveTrue(threshold));
     }
 }
