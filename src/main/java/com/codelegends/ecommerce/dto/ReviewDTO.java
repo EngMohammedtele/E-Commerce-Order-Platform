@@ -34,12 +34,18 @@ public class ReviewDTO {
     // Prevent the review date date from being in the future
     @PastOrPresent
     // Store the reviewDate value for this object
+    // Show when the review was created
     private LocalDateTime reviewDate;
+    // Make sure the customer id value is provided
     @NotNull
+    // Validate that the customer id value is greater than zero
     @Positive
     // Store the customerId value for this object
+    // Point this DTO back to the related customer
     private Long customerId;
+    // Make sure the product id value is provided
     @NotNull
+    // Validate that the product id value is greater than zero
     @Positive
     // Store the productId value for this object
     private Long productId;
