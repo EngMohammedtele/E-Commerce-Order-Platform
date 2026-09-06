@@ -56,7 +56,9 @@ public class Product extends BaseClass {
     // Store the list of related orderItems entries
     // List order rows that include this product
     private List<OrderItem> orderItems=new ArrayList<>();
+    // Connect this Product to many reviews records
     @OneToMany(mappedBy="product")
     // Store the list of related reviews entries
+    // Store review rows connected to this record
     private List<Review> reviews=new ArrayList<>();
 }
