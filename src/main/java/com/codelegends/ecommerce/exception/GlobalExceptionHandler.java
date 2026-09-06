@@ -29,6 +29,7 @@ public class GlobalExceptionHandler {
         return response(HttpStatus.BAD_REQUEST,e.getMessage());
     }
     // Handle this kind of exception in one place
+    // Catch validation errors from request bodies
     @ExceptionHandler(MethodArgumentNotValidException.class) ResponseEntity<ErrorResponse> validation(MethodArgumentNotValidException e) {
         // Collect validation messages into one readable string
         String m=e.getBindingResult().getFieldErrors().stream().map(x->x.getField()+": "+x.getDefaultMessage()).collect(Collectors.joining(", "));
