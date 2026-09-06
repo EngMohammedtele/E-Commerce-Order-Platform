@@ -2,9 +2,13 @@ package com.codelegends.ecommerce.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import static com.codelegends.ecommerce.entity.Enums.*;
+// Mark Address as a table-backed database entity
 @Entity
+// Let Lombok create getter methods for fields
 @Getter
+// Let Lombok create setter methods for fields
 @Setter
+// Give JPA an empty constructor to create objects
 @NoArgsConstructor
 // Defines the Address type used by the ecommerce app
 public class Address extends BaseClass {
